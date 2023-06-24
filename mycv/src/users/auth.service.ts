@@ -14,7 +14,7 @@ export default class AuthService {
     // See if email is in use
     const users = await this.userService.find(email);
     if (users.length) {
-      new BadRequestException('email in use');
+      throw new BadRequestException('email in use');
     }
 
     // hash the user password
